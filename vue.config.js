@@ -1,3 +1,4 @@
+var path = require("path");
 module.exports = {
     devServer: {
         proxy: {
@@ -10,11 +11,11 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                "@": Path.resolve(__dirname, "./src"),
-                "@api": Path.resolve(__dirname, "./src/api"),
-                "@common": Path.resolve(__dirname, "./src/common"),
-                "@components": Path.resolve(__dirname, "./src/components"),
-                "@utils": Path.resolve(__dirname, "./src/utils")
+                "@": path.resolve(__dirname, "./src"),
+                "@api": path.resolve(__dirname, "./src/api"),
+                "@common": path.resolve(__dirname, "./src/common"),
+                "@components": path.resolve(__dirname, "./src/components"),
+                "@utils": path.resolve(__dirname, "./src/utils")
             }
         }
     }
