@@ -30,6 +30,8 @@ export const http = function (type, url, params={}){
         params: params
       })
       return req;
+
+
   }else if(type == "post"){
     let req = server.post(url,params);
     return req;

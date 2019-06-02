@@ -1,3 +1,8 @@
 export default {
-   imageBanner: []
+   headerBanner: [],
+   newProImgList: [],
+   delayList: [],
+   imgList: [],
+   logoList: [],
+   imgListBottom: []
 }

@@ -2,8 +2,8 @@
     <div class="newProducts">
         <h2>NEW ARRIVAL</h2>
         <ul>
-            <li>
-                <!-- <img src="/img/pic1.webp"> -->
+            <li v-for="(item, index) in newProImgList" :key="index">
+                <img :src=item.featureImage>
             </li>
         </ul>
     </div>
@@ -13,13 +13,18 @@
 import Vuex from "vuex"
 export default {
     name:"NewProducts",
+    created(){
+        this.newProList();
+    },
     methods: {
         ...Vuex.mapActions({
-            newProData: "Home/getNewPro"
+            newProList: "Home/newProList"
         })
     },
-    created(){
-        this.newProData()
+    computed:{
+        ...Vuex.mapState({
+            newProImgList: state=>state.Home.newProImgList
+        })
     }
 }
 </script>
@@ -41,15 +46,17 @@ export default {
 .newProducts ul{
     display: flex;
     margin-bottom: .6rem;
+    width: max-content;
+    justify-content: space-around;
 }
 
 .newProducts ul li{
     min-height: 2rem;
-    background: #000;
     width: 100%;
 }
 
 .newProducts ul li img{
-    min-width: 2.4rem;
+    height: 3rem;
+    width: 3rem;
 }
 </style>

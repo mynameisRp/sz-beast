@@ -1,7 +1,7 @@
 <template>
     <div class="banners">
         <ul>
-            <li v-for="(item,index) in imageBanner" :key="index">
+            <li v-for="(item,index) in headerBanner" :key="index">
                 <img :src="item.image.src">
             </li>
         </ul>
@@ -16,16 +16,16 @@ import Vuex from 'vuex'
 export default {
     name:"BannerHeader",
     created(){
-        this.bannerList("imageBanner");
+        this.headerbannerList();
     },
     methods: {
         ...Vuex.mapActions({
-            bannerList: "Home/getData"
+            headerbannerList: "Home/headerBannerList"
         })
     },
     computed: {
         ...Vuex.mapState({
-            imageBanner:state=>state.Home.imageBanner
+            headerBanner:state=>state.Home.headerBanner
         })
     }
 }

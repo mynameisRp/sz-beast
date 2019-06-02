@@ -2,24 +2,32 @@
   <div id="app">
     <!-- <router-view /> -->
     <Index/>
-    <TabBar/>
+    <TabBar v-if="this.$route.meta"/>
   </div>
 </template>
 
 <script>
-import TabBar from "@/common/tabBar"
-import Index from "@/views/home/index"
+import TabBar from "@common/tabBar"
+import Index from "@/views/home"
+import Vuex from "vuex"
 export default {
   name:"App",
   components: {
     TabBar,
     Index
   },
-  created(){}
+  data(){
+    return {
+      tabBar: this.$route.meta
+    }
+  }
 }
 </script>
 
 
-<style>
+<style scoped>
+
+
+
 
 </style>
