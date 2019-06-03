@@ -4,6 +4,8 @@ import Choose from './choose/index'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'hash',
-  routes: [Choose]
+  mode: 'history',
+  routes: [
+    Choose
+  ]
 })
