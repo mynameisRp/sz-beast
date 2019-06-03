@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import Choose from './choose/index'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'hash',
+  mode: 'history',
   routes: [
     {
       path: "/",
@@ -12,43 +12,12 @@ export default new Router({
     },
     {
       path: "/index",
-      name: "Home",
+      name: "Index",
       meta: {
-        tabFlag:true
-      },  
-      component: ()=>import("@/views/home/index")
-    },
-    {
-      path: "/choose",
-      name: "Choose",
-      meta: {
-        tabFlag: true
+        tabBarFlag: true
       },
-      component: () => import("@/views/home/index")
+      component: ()=>import("@views/home/index")
     },
-    {
-      path: "/find",
-      name: "Find",
-      meta: {
-        tabFlag: true
-      },
-      component: () => import("@/views/home/index")
-    },
-    {
-      path: '/shop',
-      name: "Shop",
-      meta: {
-        tabFlag: true
-      },
-      component: () => import("@/views/home/index")
-    },
-    {
-      path: "/mine",
-      name: "Mime",
-      meta: {
-        tabFlag: false
-      },
-      component: () => import("@/views/home/index")
-    }
+    Choose
   ]
 })
