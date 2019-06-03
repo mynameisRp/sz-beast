@@ -1,18 +1,16 @@
 import Choose from "../../components/choose"
-import chooseMore from '../../components/chooseMore'
 export default {
     path:'/choose',
-    component:Choose ,
-    
+    component:Choose,
     meta:{
         tabBarFlag:true
-    },
+    }
     
-    children:[
-        {
-            path:'/choose/more',
-            component:chooseMore
-        }
-    ]
+    // children:[
+    //     {
+    //         path:'/choose/more',
+    //         component:chooseMore
+    //     }
+    // ]
 
 }

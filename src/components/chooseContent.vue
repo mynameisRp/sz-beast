@@ -3,25 +3,24 @@
         <div id = "content">
             <div id = "content_left">
                 <ul>
-                    <router-link 
-                    v-for="(item, index) in list" :key="index" tag="li" to="/choose/more"
-                   @click.native="getRouteIndex(index)"
-                    >{{item.data.title}}</router-link>
                     
+                    <li v-for="(item, index) in list" :key="index" :ref='index'
+                   @click="getRouteindex(index,$event)"><span>{{item.data.title}}</span></li>
                 </ul>
             </div>
             <div id = "content_right">
-                <router-view></router-view>
+                <chooseMore/>
             </div>
         </div>
     </div>
 </template>
 <script>
 import  Vuex from 'vuex'
+import chooseMore from './chooseMore'
 export default {
     created(){
-       this.getChooseIndex()
-  
+      this.getChooseIndex()
+      
     },
 
     mounted() {
@@ -36,11 +35,17 @@ export default {
         ...Vuex.mapMutations({
            getRouteIndex:'choose/getRouteIndex'
         })
+        ,
+        getRouteindex(index,e){
+          var parent = e.target.parentNode ;
+          this.getRouteIndex(index)
+        }
            
     },
     computed: {
       ...Vuex.mapState({
-        list:state=>state.choose.chooseList
+        list:state=>state.choose.chooseList,
+        routerIndex:state=>state.choose.routerIndex
       })
     },
     data(){
@@ -49,6 +54,16 @@ export default {
           b:123
       }
     },
+    components:{
+      chooseMore
+    },
+    watch:{
+        'routerIndex'(newV,old){
+          console.log(this.$refs[this.routerIndex])
+          this.$refs[this.routerIndex][0].className = 'active',
+          this.$refs[old][0].className = ''
+        }
+    }
 }
 </script>
 
@@ -56,35 +71,40 @@ export default {
 <style  scpoed>
      #content{
       width:100%;
-      height:16.1818rem;
-      display: flex
-      
+      height:11.3rem;
+      display: flex;
+      padding-top:0.1818rem
       /* display: flex;
       flex-direction: row;
       flex-wrap: nowrap */
     }
     #content_left {
       float: left;
-      width:2.3rem;
-      background-color: #ccc;
-      padding:0.3636rem 0.3636rem;
+      width:2.5rem;
+      background-color: #fff;
+      padding:0.1818rem 0.3636rem;
+      height:12rem;
+      
     }
     #content_left ul li {
+      margin-top:0.1818rem;
       font-size: 0.3273rem;
       font-weight: bolder ;
       color:#000;
-      height:0.9091rem;
+      height:0.7rem;
       font-family: Helvetica Neue,Helvetica,sans-serif
     }
     #content_left ul .active {
-      font-size: 0.45rem;
+      font-size: 0.4rem;
       font-weight: 900;
-
+      border-bottom:0.0545rem solid #000;
+      display:inline-block
     }
     #content_right {
         width:5.2364rem;
         height:100%;
-        background-color: red;
+        background-color: #fff;
+        overflow:auto
       
     }
 </style>

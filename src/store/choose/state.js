@@ -12,5 +12,5 @@ export default {
         'xiangfen',
         'shenghuo'
     ],
-    routerIndex:-1
+    routerIndex:0
 }
