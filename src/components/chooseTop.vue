@@ -17,10 +17,10 @@
 
 
 <style scope >
-        #top{
+      #top{
       margin-top:0.1818rem;
       display: flex;
-      justify-content: center
+      justify-content: center;
       
     }
     #top img {

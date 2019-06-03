@@ -9,10 +9,14 @@
 
 <script>
 import Vuex from 'vuex'
+<<<<<<< Updated upstream
 import axios from 'axios'
 import {get} from '../store/choose/get'
 import chooseTop from './chooseTop'
 import Bus from '../untils/bus'
+=======
+
+>>>>>>> Stashed changes
 export default {
     computed: {
         ...Vuex.mapState({
@@ -34,12 +38,14 @@ export default {
    data(){
        return{
            list:[],
-           index:-1
+           index:0
        }
    },
    watch:{
        "routerIndex"(){
            this.list = JSON.parse(localStorage.getItem('666'))[this.routerIndex].data.subCategory
+           console.log(this.routerIndex)
+           console.log(this.list)
        }
    }
 }
@@ -47,10 +53,17 @@ export default {
 
 
 <style scoped>
+    #app {
+        width:5.3rem;
+        min-height:10rem;
+        background-color: #fff;
+        float:right;
+    }
     #app div {
         display:inline-block;
         padding-left:0.06rem;
-        position:relative
+        position:relative;
+        
     }
     #app div img {
         width:2.45rem;
