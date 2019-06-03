@@ -19,9 +19,7 @@ server.interceptors.response.use(
       return res.data;
     }
   },
-  e => {
-    return Promise.reject(e);
-  }
+  e => Promise.reject(e)
 );
 
 export const http = function (type, url, params={}){
