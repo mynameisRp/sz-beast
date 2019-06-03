@@ -16,11 +16,10 @@
 </template>
 <script>
 import  Vuex from 'vuex'
-<<<<<<< Updated upstream
-import Bus from '../untils/bus'
-=======
+
+
 import chooseMore from './chooseMore'
->>>>>>> Stashed changes
+
 export default {
     created(){
       this.getChooseIndex()

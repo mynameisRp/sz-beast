@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    
-    <router-view></router-view>
+    <router-view />
+    <TabBar v-if="this.$route.meta"/>
   </div>
 </template>
 
-<style>
-
-</style>
 <script>
-import Choose from './components/choose'
+import TabBar from "@common/tabBar"
+import Vuex from "vuex"
 export default {
-    components:{
-      Choose
-    }
+  name:"App",
+  components: {
+    TabBar
+  }
 }
 </script>
+
+
+<style scoped>
+
+
+
+
+</style>

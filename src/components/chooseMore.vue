@@ -9,14 +9,7 @@
 
 <script>
 import Vuex from 'vuex'
-<<<<<<< Updated upstream
-import axios from 'axios'
-import {get} from '../store/choose/get'
-import chooseTop from './chooseTop'
-import Bus from '../untils/bus'
-=======
 
->>>>>>> Stashed changes
 export default {
     computed: {
         ...Vuex.mapState({
